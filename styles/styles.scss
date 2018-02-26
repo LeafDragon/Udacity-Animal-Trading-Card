@@ -1,17 +1,16 @@
 $namespace: uatc;
 
 /// @author Frank Dip
+/// A new experiment with something I call NS-B--E---M with Sass
+/// NS is a namespace prefix
+/// BEM hyphens only. Using double hyhens for block and element separators
+/// Using triple hyhens for modifier separators
+/// Using Sass placeholder classes to reduce repeated code
+///
+/// Changed the left and right to multiple classes
+/// Gotten rid of most of the c-style comments
 /// TODO: Need to change the comments to SassDoc
-/// @version 1.0
-
-/**
- * A new experiment with something I call NS-B--E---M with Sass
- * NS is a namespace prefix
- * BEM hyphens only. Using double hyhens for block and element separators
- * Using triple hyhens for modifier separators
- * Using Sass placeholder classes to reduce repeated code
- */
-
+/// @version 1.1
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 
@@ -89,225 +88,121 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
   }
 }
 
-/**
- * .uatc-card
- * 1. Center the card
- * 2. Box-shadow bottom right black
- * 3. Sets the border
- * 4. Sets border radius on all corners
- * 5. Adds padding
- * 6. Sets the width to 300px plus 2px for the image border width
- * 7. Changes font to Roboto
- * 8. Changes line height to 1.5
- * 9. Sets linear gradient for the background green to black
- */
+/********************************************//**
+ *  Classes
+ ***********************************************/
+
+// .#{$namespace}-card
 .#{$namespace}-card {
-  margin: 0px auto; /* 1 */
-  box-shadow: 5px 5px 5px 0px #111; /* 2 */
-  @extend %border---one-solid-black; /* 3 */
-  border-radius: $border-radius; /* 4 */
-  padding: 10px; /* 5 */
-  width: 302px; /* 6 */
-  font-family: "Roboto", sans-serif; /* 7 */
-  line-height: 1.5; /* 8 */
-  //background-image: linear-gradient(to bottom right, #8bc34a, #212121); /* 9 */
+  margin: 0px auto;
+  box-shadow: 5px 5px 5px 0px #111;
+  @extend %border---one-solid-black;
+  border-radius: $border-radius;
+  padding: 10px;
+  width: 302px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
   background-color: #FFF;
 
-  /**
-   * .uatc-card-header
-   * 1. Makes the position relative, so can add in CSS drawings.
-   * 2. Margin top and bottom is 10px
-   * 3. Sets border
-   * 4. Rounded border top-left and top-right
-   * 5. Radial gradient background
-   */
+  // .#{$namespace}-card--header
   &--header {
-    position: relative; /* 1 */
-    margin: 10px auto; /* 2 */
-    @extend %border---one-solid-black; /* 3 */
-    border-radius: $border-radius $border-radius 0 0; /* 4 */
-    @extend %background-image---radial-gradient---tan-yellow-brown; /* 5 */
+    position: relative;
+    margin: 10px auto;
+    @extend %border---one-solid-black;
+    border-radius: $border-radius $border-radius 0 0;
+    @extend %background-image---radial-gradient---tan-yellow-brown;
 
-    /**
-     * .uatc-card-header-lantern
-     * 1. Sets the position absolute to header
-     * 2. Shifts the lantern down by 50% of the header height
-     * 3. Shifts the lantern up by 50% of the lantern height
-     * 4. Rounds the borders by 30%
-     * 5. Sets the lantern width to 25px
-     * 6. Sets the lantern height to 35px
-     * 7. Animates the background and box shadow
-     */
+    // .#{$namespace}-card--header--lantern
     &--lantern {
-      @extend %position---absolute; /* 1 */
-      top: 50%; /* 2 */
-      transform: translate(0, -50%); /* 3 */
-      border-radius: 30%; /* 4 */
-      width: 25px; /* 5 */
-      height: 35px; /* 6 */
-      animation: 5s infinite alternate lantern-light; /* 7 */
+      @extend %position---absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      border-radius: 30%;
+      width: 25px;
+      height: 35px;
+      animation: 5s infinite alternate lantern-light;
 
-      /**
-       * .uatc-card-header-lanter:before
-       * Draws the top string
-       * 1. Sets the position absolute to the lantern
-       * 2. Moves the string up
-       * 3. Moves the string right
-       * 4. Rotates the string counter-clockwise
-       * 5. Draws the string
-       * 6. Draws the string
-       * 7. Sets the width
-       * 8. Sets the height
-       * 9. Displays set to block so it can be visible
-       * 10. Sets the content to empty strin so it can be visibile
-       */
+      // .#{$namespace}-card--header--lantern:before
       &:before{
-        @extend %position---absolute; /* 1 */
-        top: -10%; /* 2 */
-        left: 29%; /* 3 */
-        transform: rotate(-45deg); /* 4 */
-        border-top: $latern-string; /* 5 */
-        border-right: $latern-string; /* 6 */
-        width: 10px; /* 7 */
-        height: 10px; /* 8 */
-        display: block; /* 9 */
-        content: ""; /* 10 */
-      }// close .uatc-card-header-lantern:before
+        @extend %position---absolute;
+        top: -10%;
+        left: 29%;
+        transform: rotate(-45deg);
+        border-top: $latern-string;
+        border-right: $latern-string;
+        width: 10px;
+        height: 10px;
+        display: block;
+        content: "";
+      }// close .#{$namespace}-card--header--lantern:before
 
-      /**
-       * .uatc-card-header-lanter:before
-       * Draws the top string
-       * 1. Sets the position absolute to the lantern
-       * 2. Moves the string down
-       * 3. Moves the string right
-       * 4. Draws the string
-       * 5. Draws the string
-       * 6. Sets the width
-       * 7. Sets the height
-       * 8. Displays set to block so it can be visible
-       * 9. Sets the content to empty strin so it can be visibile
-       */
+      // .#{$namespace}-card--header--lantern:after
       &:after {
-        @extend %position---absolute; /* 1 */
-        bottom: -30%; /* 2 */
-        left: 26%; /* 3 */
-        border-left: $latern-string; /* 4 */
-        border-right: $latern-string; /* 5 */
-        width: 10px; /* 6 */
-        height: 10px; /* 7 */
-        display: block; /* 8 */
-        content: ""; /* 9 */
-      }// close .uatc-card-header-lantern:after
+        @extend %position---absolute;
+        bottom: -30%;
+        left: 26%;
+        border-left: $latern-string;
+        border-right: $latern-string;
+        width: 10px;
+        height: 10px;
+        display: block;
+        content: "";
+      }// close .#{$namespace}-card--header--lantern:after
 
-      /**
-       * .uatc-card-header-lantern-text
-       * 1. Sets the position to absolute
-       * 2. Shifts the text down by 50% of the lantern height
-       * 3. Shifts the text right by 50% of the lantern width
-       * 4. Shifts the text left and up by 50% of the text width and height
-       * 5. Sets the text width
-       * 6. Sets the text height
-       * 7. Makes the color yellow with an opacity of 50%
-       */
+      // .#{$namespace}-card--header--lantern--text
       &--text {
-        @extend %position---absolute; /* 1 */
-        top: 50%; /* 2 */
-        left: 50%; /* 3 */
-        transform: translate(-50%, -50%); /* 4 */
-        width: 14px; /* 5 */
-        height: 20px; /* 6 */
-        color: rgba(255,255,0,0.5); /* 7 */
-      }// close .uatc-card-header-lantern-text
+        @extend %position---absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 14px;
+        height: 20px;
+        color: rgba(255,255,0,0.5);
+      }// close .#{$namespace}-card--header--lantern--text
 
-      /**
-       * .uatc-card-header-lantern-left
-       * 1. Aligns the lantern from the left
-       */
-      &---left {left: $lantern-align; /* 1 */}
+      &.#{$namespace}-left {left: $lantern-align;}
 
-      /**
-       * .uatc-card-header-lantern-right
-       * 1. Aligns the lantern from the right
-       */
-      &---right {right: $lantern-align; /* 1 */}
-    }// closes .uatc-card-header-lantern
+      &.#{$namespace}-right {right: $lantern-align;}
+    }// closes .#{$namespace}-card--header--lantern
 
-    /**
-     * .uatc-card-header-title
-     * 1. Centers the text
-     */
+    // .#{$namespace}-card--header--title
     &--title {
-      text-align: center; /* 1 */
-    }// close .uatc-card-header-title class
-  }// close .uatc-card-header class
+      text-align: center;
+    }// close .#{$namespace}-card--header--title class
+  }// close .#{$namespace}-card--header class
 
-
-  /**
-   * .uatc-card-img
-   * 1. Makes the image a block element. Helps align margins a bit
-   * 2. Sets border
-   * 3. Sets image width to 300px
-   */
+  // .#{$namespace}-card--img
   &--img {
-    display: block; /* 1 */
-    @extend %border---one-solid-black; /* 2 */
-    width: 300px; /* 3 */
+    display: block;
+    @extend %border---one-solid-black;
+    width: 300px;
 
-    /**
-     * .uatc-card-img:hover
-     * 1. animates a box shadow on hover
-     * duration
-     * iteration count
-     * direction
-     * animation name
-     */
     &:hover {
-      animation: 3s infinite alternate box-shadow; /* 1 */
+      animation: 3s infinite alternate box-shadow;
     }
-  }// close .uatc-card-img class
+  }// close .#{$namespace}-card--img class
 
-  /**
-   * .uatc-card-body
-   * 1. Sets top margin to 10px
-   * 2. Sets border
-   * 3. Rounded bottom-left and bottom-right corners
-   * 4. Padding to 10px
-   * 5. Radial gradient background
-   */
+  // .#{$namespace}-card--body
   &--body {
-    margin-top: 10px; /* 1 */
-    @extend %border---one-solid-black; /* 2 */
-    border-radius: 0 0 $border-radius $border-radius; /* 3 */
-    padding: 10px; /* 4 */
-    @extend %background-image---radial-gradient---tan-yellow-brown; /* 5 */
+    margin-top: 10px;
+    @extend %border---one-solid-black;
+    border-radius: 0 0 $border-radius $border-radius;
+    padding: 10px;
+    @extend %background-image---radial-gradient---tan-yellow-brown;
 
-    /**
-     * .uatc-card-body-summary
-     * 1. Makes the font italic
-     */
-    &--summary {font-style: italic; /* 1 */}
+    // .#{$namespace}-card--body--summary
+    &--summary {font-style: italic;}
 
-    /**
-     * .uatc-card-body-list
-     * 1. Shifts the list to the left
-     * 2. Removes the bullets
-     */
+    // .#{$namespace}-card--body--list
     &--list {
-      padding-left: 0; /* 1 */
-      list-style-type: none; /* 2 */
+      padding-left: 0;
+      list-style-type: none;
 
-      /**
-       * .uatc-card-body-list-item-title
-       * 1. Makes the font bold
-       */
-      &--item-title {font-weight: bold; /* 1 */}
+      // .#{$namespace}-card--body--list--item-title
+      &--item-title {font-weight: bold;}
     }// close .uatc-card-body-list class
 
-    /**
-     * .uatc-card-body-footer
-     * 1. Smaller text for citation
-     */
-    &--footer {font-size: x-small; /* 1 */}
-  }// close .uatc-card-body class
-
-}// close .uatc-card class
+    // .#{$namespace}-card--body--footer
+    &--footer {font-size: x-small;}
+  }// close .#{$namespace}-card--body--footer class
+}// close .#{$namespace}-card class

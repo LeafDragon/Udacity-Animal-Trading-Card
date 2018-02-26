@@ -1,0 +1,85 @@
+//output: index.html
+
+- var namespace = "uatc"
+
+//- Changed the left and right to multiple classes
+//- Converted to PUG
+
+- var author = "Frank Dip"
+- var version = "Version 2.0"
+- var title = "Udacity Animal Trading Cards"
+- var description = "Udacity Google scholarship second project. Animal Trading Card. " + version + "."
+
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    title #{title}
+    meta(name="description", content=description)
+    meta(name="author", content="Frank Dip")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+    link(rel="stylesheet", href="styles\\styles.min.css")
+  body
+    // Main 
+    main
+    
+      // First card 
+      - var classCard = namespace + "-card"
+      article(class=classCard)
+        
+        // Card header 
+        - var classCardHeader = classCard + "--header"
+        header(class=classCardHeader)
+          - var classCardHeaderLantern = classCardHeader + "--lantern"
+          - var classCardHeaderLanternText = classCardHeaderLantern + "--text"
+          div(class=classCardHeaderLantern + " " + namespace + "-left")
+            span(class=classCardHeaderLanternText) 狗
+          div(class=classCardHeaderLantern + " " + namespace + "-right")
+            span(class=classCardHeaderLanternText) 狗
+          h3(class=classCardHeader + "--title") Scottish Terrier
+        
+        // Card image 
+        img(class=classCard + "--img"
+          src="https://upload.wikimedia.org/wikipedia/commons/1/1c/0Scottish_Terrier.jpg"
+          alt="Black Scottish Terrier Dog wearing a red collar sitting on a rock in the woods. A few scattered rocks on the ground. A few trees in the background."
+        )
+        
+        // Card body 
+        - var classCardBody = classCard + "--body"
+        section(class=classCardBody)
+          
+          // Card body summary 
+          p(class=classCardBody + "--summary") Populary known as the Scottie
+          
+          // Card body list 
+          - var classCardBodyList = classCardBody + "--list"
+          ul(class=classCardBodyList)
+            - var classCardBodyListItemTitle = classCardBodyList + "--item-title"
+            li
+              span(class=classCardBodyListItemTitle) Scientific name
+              | : Canis lupus familiaris
+            li
+              span(class=classCardBodyListItemTitle) Average Height
+              | : 25 cm or 9.8 in
+            li
+              span(class=classCardBodyListItemTitle) Average Lifespan
+              | : 11 to 13 years
+            li
+              span(class=classCardBodyListItemTitle) Habitat
+              | : Prairies, grasslands, forests, rain forests, deserts, coastal regions and arctic zones.
+          
+          // Card body description 
+          p The Scottish Terrier is also known as the Arberdeen Terrier. As a terrier is one of the five breeds that originated in Scotland.
+          
+          // Card body footer 
+          footer(class=classCardBody + "--footer")
+            p Otto the dog. 
+              a(href="https://www.flickr.com/people/8858937@N02", target="_blank") narujen(new tab)
+              | , 
+              a(href="https://commons.wikimedia.org/wiki/File:0Scottish_Terrier.jpg"
+                target="_blank"
+              ) 0Scottish Terrier(new tab)
+              | , 
+              a(href="https://creativecommons.org/licenses/by/2.0/legalcode"
+                rel="license"
+              ) CC BY 2.0(new tab)
