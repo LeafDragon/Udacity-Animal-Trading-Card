@@ -6,11 +6,7 @@ $namespace: uatc;
 /// BEM hyphens only. Using double hyhens for block and element separators
 /// Using triple hyhens for modifier separators
 /// Using Sass placeholder classes to reduce repeated code
-///
-/// Changed the left and right to multiple classes
-/// Gotten rid of most of the c-style comments
-/// TODO: Need to change the comments to SassDoc
-/// @version 1.1
+/// @version 1.2
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 
@@ -103,7 +99,6 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   background-color: #FFF;
-
   // .#{$namespace}-card--header
   &--header {
     position: relative;
@@ -111,7 +106,6 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
     @extend %border---one-solid-black;
     border-radius: $border-radius $border-radius 0 0;
     @extend %background-image---radial-gradient---tan-yellow-brown;
-
     // .#{$namespace}-card--header--lantern
     &--lantern {
       @extend %position---absolute;
@@ -121,7 +115,6 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
       width: 25px;
       height: 35px;
       animation: 5s infinite alternate lantern-light;
-
       // .#{$namespace}-card--header--lantern:before
       &:before{
         @extend %position---absolute;
@@ -135,7 +128,6 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
         display: block;
         content: "";
       }// close .#{$namespace}-card--header--lantern:before
-
       // .#{$namespace}-card--header--lantern:after
       &:after {
         @extend %position---absolute;
@@ -148,7 +140,6 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
         display: block;
         content: "";
       }// close .#{$namespace}-card--header--lantern:after
-
       // .#{$namespace}-card--header--lantern--text
       &--text {
         @extend %position---absolute;
@@ -159,29 +150,23 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
         height: 20px;
         color: rgba(255,255,0,0.5);
       }// close .#{$namespace}-card--header--lantern--text
-
       &.#{$namespace}-left {left: $lantern-align;}
-
       &.#{$namespace}-right {right: $lantern-align;}
     }// closes .#{$namespace}-card--header--lantern
-
     // .#{$namespace}-card--header--title
     &--title {
       text-align: center;
     }// close .#{$namespace}-card--header--title class
   }// close .#{$namespace}-card--header class
-
   // .#{$namespace}-card--img
   &--img {
     display: block;
     @extend %border---one-solid-black;
     width: 300px;
-
     &:hover {
       animation: 3s infinite alternate box-shadow;
     }
   }// close .#{$namespace}-card--img class
-
   // .#{$namespace}-card--body
   &--body {
     margin-top: 10px;
@@ -189,19 +174,15 @@ $latern-string: 1px solid rgba(0,0,0,0.3);
     border-radius: 0 0 $border-radius $border-radius;
     padding: 10px;
     @extend %background-image---radial-gradient---tan-yellow-brown;
-
     // .#{$namespace}-card--body--summary
     &--summary {font-style: italic;}
-
     // .#{$namespace}-card--body--list
     &--list {
       padding-left: 0;
       list-style-type: none;
-
       // .#{$namespace}-card--body--list--item-title
       &--item-title {font-weight: bold;}
     }// close .uatc-card-body-list class
-
     // .#{$namespace}-card--body--footer
     &--footer {font-size: x-small;}
   }// close .#{$namespace}-card--body--footer class

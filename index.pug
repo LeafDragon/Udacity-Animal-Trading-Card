@@ -2,13 +2,29 @@
 
 - var namespace = "uatc"
 
-//- Changed the left and right to multiple classes
-//- Converted to PUG
+//- Moved all the variable classes to near the top
 
 - var author = "Frank Dip"
-- var version = "Version 2.0"
+- var version = "Version 2.1"
 - var title = "Udacity Animal Trading Cards"
 - var description = "Udacity Google scholarship second project. Animal Trading Card. " + version + "."
+
+//- Card classes
+- var classCard = namespace + "-card"
+
+- var classCardHeader = classCard + "--header"
+- var classCardHeaderLantern = classCardHeader + "--lantern"
+- var classLeft = namespace + "-left"
+- var classRight = namespace + "-right"
+- var classCardHeaderLanternText = classCardHeaderLantern + "--text"
+
+- var classImage = classCard + "--img"
+
+- var classCardBody = classCard + "--body"
+- var classCardBodySummary = classCardBody + "--summary"
+- var classCardBodyList = classCardBody + "--list"
+- var classCardBodyListItemTitle = classCardBodyList + "--item-title"
+- var classCardBodyFooter = classCardBody + "--footer"
 
 doctype html
 html(lang="en-US")
@@ -22,39 +38,23 @@ html(lang="en-US")
   body
     // Main 
     main
-    
       // First card 
-      - var classCard = namespace + "-card"
       article(class=classCard)
-        
         // Card header 
-        - var classCardHeader = classCard + "--header"
         header(class=classCardHeader)
-          - var classCardHeaderLantern = classCardHeader + "--lantern"
-          - var classCardHeaderLanternText = classCardHeaderLantern + "--text"
-          div(class=classCardHeaderLantern + " " + namespace + "-left")
+          div(class=classCardHeaderLantern + " " + classLeft)
             span(class=classCardHeaderLanternText) 狗
-          div(class=classCardHeaderLantern + " " + namespace + "-right")
+          div(class=classCardHeaderLantern + " " + classRight)
             span(class=classCardHeaderLanternText) 狗
           h3(class=classCardHeader + "--title") Scottish Terrier
-        
         // Card image 
-        img(class=classCard + "--img"
-          src="https://upload.wikimedia.org/wikipedia/commons/1/1c/0Scottish_Terrier.jpg"
-          alt="Black Scottish Terrier Dog wearing a red collar sitting on a rock in the woods. A few scattered rocks on the ground. A few trees in the background."
-        )
-        
+        img(class=classImage, src="https://upload.wikimedia.org/wikipedia/commons/1/1c/0Scottish_Terrier.jpg", alt="Black Scottish Terrier Dog wearing a red collar sitting on a rock in the woods. A few scattered rocks on the ground. A few trees in the background.")
         // Card body 
-        - var classCardBody = classCard + "--body"
         section(class=classCardBody)
-          
           // Card body summary 
-          p(class=classCardBody + "--summary") Populary known as the Scottie
-          
+          p(class=classCardBodySummary) Populary known as the Scottie
           // Card body list 
-          - var classCardBodyList = classCardBody + "--list"
           ul(class=classCardBodyList)
-            - var classCardBodyListItemTitle = classCardBodyList + "--item-title"
             li
               span(class=classCardBodyListItemTitle) Scientific name
               | : Canis lupus familiaris
@@ -67,19 +67,13 @@ html(lang="en-US")
             li
               span(class=classCardBodyListItemTitle) Habitat
               | : Prairies, grasslands, forests, rain forests, deserts, coastal regions and arctic zones.
-          
           // Card body description 
           p The Scottish Terrier is also known as the Arberdeen Terrier. As a terrier is one of the five breeds that originated in Scotland.
-          
           // Card body footer 
-          footer(class=classCardBody + "--footer")
+          footer(class=classCardBodyFooter)
             p Otto the dog. 
               a(href="https://www.flickr.com/people/8858937@N02", target="_blank") narujen(new tab)
               | , 
-              a(href="https://commons.wikimedia.org/wiki/File:0Scottish_Terrier.jpg"
-                target="_blank"
-              ) 0Scottish Terrier(new tab)
+              a(href="https://commons.wikimedia.org/wiki/File:0Scottish_Terrier.jpg", target="_blank") 0Scottish Terrier(new tab)
               | , 
-              a(href="https://creativecommons.org/licenses/by/2.0/legalcode"
-                rel="license"
-              ) CC BY 2.0(new tab)
+              a(href="https://creativecommons.org/licenses/by/2.0/legalcode", rel="license") CC BY 2.0(new tab)
